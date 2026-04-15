@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Toreno';
+  src: url('/Toreno.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-oxy-orange: #F39C12;
+  --color-oxy-teal: #1ABC9C;
+  --color-oxy-dark: #0D0D0D;
+  --color-oxy-charcoal: #2C3E50;
+  --color-oxy-light: #ECF0F1;
+
+  --font-bebas: "Toreno", "Bebas Neue", sans-serif;
+  --font-montserrat: "Toreno", "Montserrat", sans-serif;
+  --font-roboto: "Toreno", "Roboto", sans-serif;
+  --font-sans: "Toreno", sans-serif;
+}
+
+@layer utilities {
+  .text-3d {
+    text-shadow: 1px 1px 0 #c07d0a, 2px 2px 0 #a86c09, 3px 3px 0 #8f5c08, 4px 4px 10px rgba(0,0,0,0.5);
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0D0D0D;
+}
+::-webkit-scrollbar-thumb {
+  background: #F39C12;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d68910;
+}
+
+/* Selection Color */
+::selection {
+  background: #F39C12;
+  color: #FFFFFF;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 20s linear infinite;
+}
+
+/* Hide cursor on desktop to use custom cursor */
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  a, button, input, textarea, select {
+    cursor: none;
+  }
+}
